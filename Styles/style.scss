@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina|Cinzel|Indie+Flower|Josefin+Sans|Just+Another+Hand|Permanent+Marker&display=swap");
+
+//variables
+
+$black: rgb(41, 39, 39);
+$white: rgb(255, 255, 255);
+$gradient: linear-gradient(45deg, #40e0d0, #009fff, #ff8c00, #ff0080, #ec2f4b);
+
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1026&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//container styles
+
+.container {
+  position: relative;
+  border: 5px solid transparent;
+  border-image: $gradient;
+  border-image-slice: 1;
+  border-radius: 15px;
+  height: 40vh;
+  width: 20vw;
+  min-width: 250px;
+  min-height: 400px;
+  background: $black;
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.8s ease-in-out;
+}
+
+.container:hover {
+  opacity: 0.9;
+  .form p {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+//form styles
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 6%;
+  margin-top: 1%;
+  font-family: "Josefin Sans", Courier, monospace;
+  font-size: 1.1rem;
+}
+form h2 {
+  color: $white;
+  font-family: "Cinzel", Courier, monospace;
+  font-size: 1.8rem;
+}
+
+form p {
+  color: $white;
+  font-weight: 400;
+  transform: translateX(-400px);
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+}
+
+.form input {
+  width: 60%;
+  font-family: "Baloo Bhaina", Courier, monospace;
+  border: none;
+  padding: 2px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    padding: 8px;
+  }
+}
+
+//button styles
+
+button {
+  position: absolute;
+  width: 20%;
+  bottom: 6px;
+  margin-bottom: 5px;
+  border-radius: 7px;
+  background-image: $gradient;
+  font-family: "Indie Flower", Courier, monospace;
+  font-weight: 1000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes example {
+  0% {
+    color: #e6dada;
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: #e6dada;
+  }
+}
+
+//media query
+
+@media only screen and (max-width: 420px) {
+  body {
+    background-image: url("https://images.unsplash.com/photo-1528360354687-839420409a6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+  }
+
+  .container {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    border: 3px solid transparent;
+    border-image: $gradient;
+    border-image-slice: 1;
+  }
+
+  .form {
+    margin-top: 25%;
+  }
+
+  .form input {
+    width: 80%;
+  }
+
+  button {
+    margin-bottom: 25%;
+    width: 80%;
+    padding: 1.2%;
+  }
+}
